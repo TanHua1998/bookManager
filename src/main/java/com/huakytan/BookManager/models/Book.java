@@ -1,11 +1,13 @@
 package com.huakytan.BookManager.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import javax.validation.constraints.NotBlank;
 
 import java.util.UUID;
 
 public class Book {
     private final UUID id;
+    @NotBlank
     private final String title;
     private final String price;
     private final String author;

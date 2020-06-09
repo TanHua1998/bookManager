@@ -24,30 +24,28 @@ public class TestBookDataAccess implements BookDao {
     }
 
     @Override
-    public boolean addBook(UUID id, Book book) {
+    public int addBook(UUID id, Book book) {
         db.add(new Book(id, book.getTitle(), book.getPrice(), book.getAuthor()));
-        return true;
+        return 1;
     }
 
     @Override
-    public boolean deleteBookById(UUID id) {
+    public int deleteBookById(UUID id) {
         Optional<Book> target = selectBookById(id);
-        if (target.isEmpty()) return false;
+        if (target.isEmpty()) return 0;
         db.remove(target.get());
-        return true;
+        return 1;
     }
 
     @Override
-    public boolean updateBookById(UUID id, Book newBook) {
+    public int updateBookById(UUID id, Book newBook) {
         return selectBookById(id).map(target -> {
             int indexOfTarget = db.indexOf(target);
             if (indexOfTarget >= 0) {
                 db.set(indexOfTarget, new Book(id, newBook.getTitle(), newBook.getPrice(), newBook.getAuthor()));
-                return true;
+                return 1;
             }
-            return false;
-        }).orElse(false);
+            return 0;
+        }).orElse(0);
     }
-
-
 }

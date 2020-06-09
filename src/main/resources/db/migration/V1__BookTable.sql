@@ -1,6 +1,6 @@
-CREATE TABLE book {
+CREATE TABLE book (
     id UUID NOT NULL PRIMARY KEY,
     title VARCHAR(100) NOT NULL,
     price VARCHAR(7) NOT NULL,
     author VARCHAR(100) NOT NULL
-};
+);

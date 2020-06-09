@@ -1,4 +1,4 @@
-package com.huakytan.BookManager.jdbcConfig;
+package com.huakytan.BookManager.datasource;
 
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.boot.context.properties.ConfigurationProperties;

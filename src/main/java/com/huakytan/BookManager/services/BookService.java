@@ -15,7 +15,7 @@ public class BookService {
     private final BookDao bookDao;
 
     @Autowired
-    public BookService(@Qualifier("testDao") BookDao bookDao) {
+    public BookService(@Qualifier("postgresDao") BookDao bookDao) {
         this.bookDao = bookDao;
     }
 
@@ -27,15 +27,15 @@ public class BookService {
         return bookDao.selectAllBooks();
     }
 
-    public boolean deleteBookById(UUID id) {
+    public int deleteBookById(UUID id) {
         return bookDao.deleteBookById(id);
     }
 
-    public boolean updateBookById(UUID id, Book newBook) {
+    public int updateBookById(UUID id, Book newBook) {
         return bookDao.updateBookById(id, newBook);
     }
 
-    public boolean addBook(Book book) {
+    public int addBook(Book book) {
         return bookDao.addBook(book);
     }
 }

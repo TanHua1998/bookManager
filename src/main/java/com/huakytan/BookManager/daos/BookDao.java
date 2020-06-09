@@ -7,17 +7,17 @@ import java.util.Optional;
 import java.util.UUID;
 
 public interface BookDao {
-    boolean addBook(UUID id, Book book);
+    int addBook(UUID id, Book book);
 
-    boolean deleteBookById(UUID id);
+    int deleteBookById(UUID id);
 
-    boolean updateBookById(UUID id, Book book);
+    int updateBookById(UUID id, Book book);
 
     Optional<Book> selectBookById(UUID id);
 
     List<Book> selectAllBooks();
 
-    default boolean addBook(Book book) {
+    default int addBook(Book book) {
         UUID id = UUID.randomUUID();
         return addBook(id, book);
     }
