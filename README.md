@@ -1,6 +1,8 @@
 # bookManager
 Spring Boot Project to manage a book storage
 
+###### You can use Postman app as a client
+
 * You can sent a GET request to this route to get all books the server currently have
 
 https://dry-brushlands-00702.herokuapp.com/api/book
